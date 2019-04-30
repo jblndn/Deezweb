@@ -1,0 +1,23 @@
+header{
+    width: 100%;
+    background-color: $bg-menu; 
+    text-align: center;
+    .container-menu{
+        text-align: center;
+        padding: 20px 0;
+        .menu{
+            .item-menu{
+                display: inline-block;
+                margin-right: 10px;
+
+                &:last-child{
+                    margin-right: 0;
+                }
+                a{
+                    text-decoration: none;
+
+                }
+            }
+        }
+    }
+}

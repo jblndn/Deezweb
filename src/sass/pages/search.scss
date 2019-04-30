@@ -1,0 +1,29 @@
+.page-search{
+    .container-form{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+        .search-input{
+            margin-right: 30px;
+        }
+        .select-option{
+            margin-right: 30px;
+        }
+    }
+    .container-results{
+        width: 85%;
+        min-height: 300px;
+        margin: 0 auto;
+        background-color: antiquewhite;
+        .grid-cards{
+            width: 100%;
+            background-color: aquamarine;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap
+        }
+    }
+}

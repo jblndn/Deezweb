@@ -1,3 +1,93 @@
+.font-menu {
+  font-size: 22px;
+  line-height: 25px;
+  color: white;
+}
 
+.title-card {
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.page-search .container-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+.page-search .container-form .search-input {
+  margin-right: 30px;
+}
+.page-search .container-form .select-option {
+  margin-right: 30px;
+}
+.page-search .container-results {
+  width: 85%;
+  min-height: 300px;
+  margin: 0 auto;
+  background-color: antiquewhite;
+}
+.page-search .container-results .grid-cards {
+  width: 100%;
+  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 320px;
+  height: auto;
+  background-color: aqua;
+  padding: 20px;
+  margin: 0px 20px 20px 20px;
+}
+.card .image {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+.card .title {
+  text-align: center;
+  margin-top: 10px;
+}
+.card .subtitle {
+  text-align: center;
+  display: block;
+}
+.card .container-content {
+  width: 90%;
+  margin: 10px auto;
+}
+.card ion-icon {
+  font-size: 32px;
+  margin: 0 0 0 auto;
+  display: block;
+}
+
+header {
+  width: 100%;
+  background-color: black;
+  text-align: center;
+}
+header .container-menu {
+  text-align: center;
+  padding: 20px 0;
+}
+header .container-menu .menu .item-menu {
+  display: inline-block;
+  margin-right: 10px;
+}
+header .container-menu .menu .item-menu:last-child {
+  margin-right: 0;
+}
+header .container-menu .menu .item-menu a {
+  text-decoration: none;
+}
 
 /*# sourceMappingURL=style.css.map */
