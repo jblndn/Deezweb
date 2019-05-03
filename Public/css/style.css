@@ -1,21 +1,26 @@
 body {
-  background-color: #0B132B;
+  background-color: white;
 }
 
 .font-menu {
   font-size: 22px;
   line-height: 25px;
-  color: white;
+  color: #ff5266;
+  font-family: "Roboto";
 }
 
 .title-card {
   font-size: 18px;
   line-height: 22px;
+  font-family: "Roboto";
 }
 
 .title-home {
+  font-family: "Roboto";
   font-size: 50px;
-  color: white;
+  background: -webkit-linear-gradient(#ff5266, #ff916e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-align: center;
   margin: 40px 0;
 }
@@ -23,7 +28,7 @@ body {
 .page-favoris .grid-cards-fav {
   width: 85%;
   min-height: 300px;
-  margin: 0 auto;
+  margin: 50px auto 0 auto;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -35,16 +40,42 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  padding: 50px 0;
 }
 .page-search .container-form .search-input {
-  margin-right: 30px;
+  margin-right: 60px;
+  width: 250px;
+  height: 30px;
+  padding-left: 10px;
+  background-color: white;
+  border: 2px solid #ff5266;
+  font-family: "Roboto";
 }
-.page-search .container-form .select-option {
-  margin-right: 30px;
+.page-search .container-form .select label {
+  font-family: "Roboto";
+}
+.page-search .container-form .select .select-option {
+  margin-right: 60px;
+  font-family: "Roboto";
+  height: 100%;
+  padding: 5px;
+  margin-left: 5px;
+  color: white;
+  background: linear-gradient(#ff5266, #ff916e);
+}
+.page-search .container-form .select .select-option option {
+  color: black;
+}
+.page-search .container-form .send {
+  padding: 5px 20px;
+  color: white;
+  background: linear-gradient(#ff5266, #ff916e);
+  border: none;
+  font-family: "Roboto";
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.15);
 }
 .page-search .container-results {
-  width: 85%;
+  width: 90%;
   min-height: 300px;
   margin: 0 auto;
 }
@@ -55,55 +86,78 @@ body {
   align-items: flex-start;
   flex-wrap: wrap;
 }
+.page-search .container-results .grid-cards .gif {
+  width: 600px;
+  height: auto;
+  margin: 0 auto 0 auto;
+  display: block;
+}
 
 .page-home .random-fav .card {
   margin: 0 auto;
 }
+.page-home .repeat {
+  margin: 40px auto;
+  display: block;
+  width: auto;
+  height: auto;
+  padding: 12px 25px;
+  background: linear-gradient(#ff5266, #ff916e);
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: "Roboto";
+}
 
 .card {
-  width: 320px;
+  width: 300px;
   height: auto;
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
-  padding: 20px;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.15);
+  padding: 30px 20px;
   margin: 0px 20px 50px 20px;
   transition: transform 400ms ease-out;
-  background-color: #1C2541;
+  background-color: white;
 }
 .card:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 .card .image {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 200px;
-  height: 200px;
-  margin: 20px auto 0 auto;
+  width: 90%;
+  height: auto;
+  margin: 0 auto 0 auto;
   display: block;
 }
 .card .title {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 15px;
+  color: #191919;
+  font-family: "Roboto";
+  margin-bottom: 5px;
 }
 .card .subtitle {
   text-align: center;
   display: block;
+  color: #757572;
+  font-family: "Roboto";
 }
 .card ion-icon {
   font-size: 32px;
-  margin: 10px 0 0 auto;
+  margin: 10px 15px 0 auto;
   display: block;
+  color: #ff5266;
   cursor: pointer;
 }
 .card audio {
-  margin: 0 auto;
+  margin: 15px auto 0 auto;
   display: block;
 }
 
 header {
   width: 100%;
-  background-color: #1C2541;
+  background-color: white;
   text-align: center;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
 }
 header .container-menu {
   text-align: center;
@@ -111,7 +165,7 @@ header .container-menu {
 }
 header .container-menu .menu .item-menu {
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 30px;
 }
 header .container-menu .menu .item-menu:last-child {
   margin-right: 0;

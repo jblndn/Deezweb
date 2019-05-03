@@ -4,16 +4,45 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 50px;
+        padding: 50px 0;
         .search-input{
-            margin-right: 30px;
+            margin-right: 60px;
+            width: 250px;
+            height: 30px;
+            padding-left: 10px;
+            background-color: white;
+            border: 2px solid $punch;
+            font-family: $font;
         }
-        .select-option{
-            margin-right: 30px;
+        .select{
+            label{
+                font-family: $font;
+            }
+            .select-option{
+                margin-right: 60px;
+                font-family: $font;
+                height: 100%;
+                padding: 5px;
+                margin-left: 5px;
+                color: white;
+                background: $bg-linear;
+                option{
+                    color: black;
+                }
+            }
+        }
+        .send{
+            padding: 5px 20px;
+            color: white;
+            background: $bg-linear;
+            border: none;
+            font-family: $font;
+            box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.15);
+
         }
     }
     .container-results{
-        width: 85%;
+        width: 90%;
         min-height: 300px;
         margin: 0 auto;
         .grid-cards{
@@ -21,7 +50,14 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            flex-wrap: wrap
+            flex-wrap: wrap;
+            
+            .gif{
+                width: 600px;
+                height: auto;
+                margin: 0 auto 0 auto;
+                display: block;
+            }
         }
     }
 }

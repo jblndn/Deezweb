@@ -1,9 +1,10 @@
-$bg-menu: #1C2541;
-$bg: #0B132B;
-$color-light-1: #5BC0BE;
-$color-light-2: #3A506B;
-$color-black-1: #1C2541;
-$punch: #6FFFE9;
+$bg-menu: white;
+$bg: white;
+$color-light-1: #a9acbd;
+$color-black-1: #757572;
+$color-black-2: #191919;
+$punch: #ff5266;
+$bg-linear: linear-gradient(#ff5266, #ff916e);
 
 body{
     background-color: $bg;

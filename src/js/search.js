@@ -24,21 +24,28 @@ $(document).ready(function(){
             url: 'https://api.deezer.com/search?q='+ searchValue +'&output=jsonp&order='+ selectValue,
             dataType: 'jsonp',
         }).done(function(musiques){
-            console.log(musiques)
-            // Affichage recherche
-            displaySearch( musiques.data);
-            
-            gestionFav();
+
+            if (musiques.data.length == 0) {
+                $('.grid-cards').append('<img class="gif" src="https://media.giphy.com/media/xT1R9YUaUwR49MdDLa/giphy.gif">');
+            }
+            else{
+                // Affichage recherche
+                displaySearch( musiques.data);
+                
+                gestionFav();
+            }
             
         });
 
       });     
 
       function displaySearch(musiqueSearch) {
+        let icon, iconName;
+        let storageParse = localStorage.getItem('Favoris');
+        let storage = JSON.parse(storageParse);
 
           // Boucle affichant les cards
           for (let i = 0; i < musiqueSearch.length; i++) {
-
 
             let id = musiqueSearch[i].id;
             let titleValue = musiqueSearch[i].title;
@@ -48,7 +55,6 @@ $(document).ready(function(){
             let src = musiqueSearch[i].preview;
 
             // Stockage des musiques dans un objet
-
             music[id] = {
                 title : titleValue,
                 artiste : artisteValue,
@@ -57,6 +63,16 @@ $(document).ready(function(){
                 src : src
             };
 
+            // Vérification si déjà favoris
+            if (storage[id] !== undefined) {
+                icon = "fav";
+                iconName = "heart";
+            }
+            else{
+                icon = "unfav";
+                iconName = "heart-empty";
+            }
+
 
             // Insertion code html
             $('.grid-cards').append(
@@ -64,10 +80,9 @@ $(document).ready(function(){
                     '<img class="image"  src="'+ coverSrc +'">' + // a remplacer par une <img>
                     '<h4 class="title title-card">'+ titleValue +'</h4>' +
                     '<span class="subtitle">'+ artisteValue +' - '+ albumValue +'</span>' +
-                    '<ion-icon name="heart-empty" class="fav" id="iconFav" data-id="'+ id +'" data-fav="unfav"></ion-icon>' +
+                    '<ion-icon name="'+ iconName +'" class="fav" id="iconFav" data-id="'+ id +'" data-fav="'+ icon +'"></ion-icon>' +
                     '<audio id="audioPlayer" controls src="'+ src +'"></audio>'+
                 '</div>');
-            
         }
       }
     function gestionFav() {
@@ -97,9 +112,10 @@ $(document).ready(function(){
         }
     }
     function addFavoris(icon) {
-        let favStringify; 
 
         // Récupère id musique + ajout dans tableau
+        let favParse = localStorage.getItem('Favoris');
+        let favoris = JSON.parse(favParse);
         let idMusique = icon.getAttribute('data-id');
         let musicFav = music[idMusique];
         favoris[idMusique] = musicFav;
@@ -108,7 +124,7 @@ $(document).ready(function(){
         icon.setAttribute("name","heart");
 
         // Ajout local storage
-        favStringify = JSON.stringify(favoris);
+        let favStringify = JSON.stringify(favoris);
         localStorage.setItem("Favoris", favStringify);
         console.log(favStringify);
 

@@ -2,13 +2,15 @@ header{
     width: 100%;
     background-color: $bg-menu; 
     text-align: center;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
+
     .container-menu{
         text-align: center;
         padding: 20px 0;
         .menu{
             .item-menu{
                 display: inline-block;
-                margin-right: 10px;
+                margin-right: 30px;
 
                 &:last-child{
                     margin-right: 0;
