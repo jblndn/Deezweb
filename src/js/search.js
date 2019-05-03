@@ -1,7 +1,6 @@
 $(document).ready(function(){
     let favoris = {};
     let music = {};
-    let track = {};
 
     // GET DOM
     let search = $('#search');
@@ -10,7 +9,6 @@ $(document).ready(function(){
     
       search.on('submit', function(e){
         e.preventDefault();
-
 
         // Remove all cards
         $('.card').remove();
@@ -24,46 +22,23 @@ $(document).ready(function(){
         //Requête ajax api
         $.ajax({
             url: 'https://api.deezer.com/search?q='+ searchValue +'&output=jsonp&order='+ selectValue,
-            dataType: 'jsonp'
+            dataType: 'jsonp',
         }).done(function(musiques){
-            
+            console.log(musiques)
             // Affichage recherche
             displaySearch( musiques.data);
             
-
-            //FONCTION FAVORIS
-            let iconFav = document.querySelectorAll('#iconFav');
-
-            for (let n = 0; n < iconFav.length; n++) {
-                
-                iconFav[n].addEventListener('click', function(e){
-                    e.preventDefault();
-
-                    if (this.getAttribute('data-fav') == "unfav") {
-                        
-                        // Fonction ajout fav
-                        addFavoris(this);
-
-                    }
-                    else if (this.getAttribute('data-fav') == "fav") {
-                        
-                        // Fonction suppr fav
-                        removeFavoris(this);
-
-                    }
-
-
-                });
-            }
+            gestionFav();
             
-
         });
+
       });     
 
       function displaySearch(musiqueSearch) {
 
           // Boucle affichant les cards
           for (let i = 0; i < musiqueSearch.length; i++) {
+
 
             let id = musiqueSearch[i].id;
             let titleValue = musiqueSearch[i].title;
@@ -72,14 +47,15 @@ $(document).ready(function(){
             let coverSrc = musiqueSearch[i].album.cover;
             let src = musiqueSearch[i].preview;
 
-            // Stockage des musiques dans un tableau
-            track.title = titleValue;
-            track.artiste = artisteValue;
-            track.album = albumValue;
-            track.cover = coverSrc;
-            track.src = src;
+            // Stockage des musiques dans un objet
 
-            music[id] = track;
+            music[id] = {
+                title : titleValue,
+                artiste : artisteValue,
+                album : albumValue,
+                cover : coverSrc,
+                src : src
+            };
 
 
             // Insertion code html
@@ -89,12 +65,37 @@ $(document).ready(function(){
                     '<h4 class="title title-card">'+ titleValue +'</h4>' +
                     '<span class="subtitle">'+ artisteValue +' - '+ albumValue +'</span>' +
                     '<ion-icon name="heart-empty" class="fav" id="iconFav" data-id="'+ id +'" data-fav="unfav"></ion-icon>' +
-                    '<audio id="audioPlayer" src="'+ src +'"></audio>'+
+                    '<audio id="audioPlayer" controls src="'+ src +'"></audio>'+
                 '</div>');
             
         }
       }
+    function gestionFav() {
 
+        let iconFav = document.querySelectorAll('#iconFav');
+
+        for (let n = 0; n < iconFav.length; n++) {
+            
+            iconFav[n].addEventListener('click', function(e){
+                e.preventDefault();
+
+                if (this.getAttribute('data-fav') == "unfav") {
+                    
+                    // Fonction ajout fav
+                    addFavoris(this);
+
+                }
+                else if (this.getAttribute('data-fav') == "fav") {
+                    
+                    // Fonction suppr fav
+                    removeFavoris(this);
+                
+                }
+
+
+            });
+        }
+    }
     function addFavoris(icon) {
         let favStringify; 
 
@@ -109,6 +110,7 @@ $(document).ready(function(){
         // Ajout local storage
         favStringify = JSON.stringify(favoris);
         localStorage.setItem("Favoris", favStringify);
+        console.log(favStringify);
 
         icon.setAttribute("data-fav","fav");
     }
@@ -133,4 +135,5 @@ $(document).ready(function(){
 
         icon.setAttribute("data-fav","unfav");
     }
+    
 });

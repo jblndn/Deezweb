@@ -13,6 +13,23 @@ body {
   line-height: 22px;
 }
 
+.title-home {
+  font-size: 50px;
+  color: white;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.page-favoris .grid-cards-fav {
+  width: 85%;
+  min-height: 300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
 .page-search .container-form {
   width: 100%;
   display: flex;
@@ -37,6 +54,10 @@ body {
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
+}
+
+.page-home .random-fav .card {
+  margin: 0 auto;
 }
 
 .card {
@@ -73,6 +94,10 @@ body {
   margin: 10px 0 0 auto;
   display: block;
   cursor: pointer;
+}
+.card audio {
+  margin: 0 auto;
+  display: block;
 }
 
 header {
